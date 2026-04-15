@@ -467,48 +467,55 @@ const UserManagementScreen: React.FC<Props> = ({ navigation }) => {
         <ChevronDown color={colors.textMuted} size={16} />
       </TouchableOpacity>
       {showRoleFilter && (
-        <View style={styles.dropdownMenu}>
+        <>
           <TouchableOpacity
-            style={styles.dropdownItem}
-            onPress={() => {
-              handleFilterChange('RoleId', 0);
-              setShowRoleFilter(false);
-            }}>
-            <Text style={styles.dropdownItemText}>All Roles</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.dropdownItem}
-            onPress={() => {
-              handleFilterChange('RoleId', 1);
-              setShowRoleFilter(false);
-            }}>
-            <Text style={styles.dropdownItemText}>Enumerator</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.dropdownItem}
-            onPress={() => {
-              handleFilterChange('RoleId', 2);
-              setShowRoleFilter(false);
-            }}>
-            <Text style={styles.dropdownItemText}>Checker</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.dropdownItem}
-            onPress={() => {
-              handleFilterChange('RoleId', 3);
-              setShowRoleFilter(false);
-            }}>
-            <Text style={styles.dropdownItemText}>Administrator</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.dropdownItem}
-            onPress={() => {
-              handleFilterChange('RoleId', 4);
-              setShowRoleFilter(false);
-            }}>
-            <Text style={styles.dropdownItemText}>JK Admin</Text>
-          </TouchableOpacity>
-        </View>
+            style={styles.dropdownBackdrop}
+            onPress={() => setShowRoleFilter(false)}
+            activeOpacity={1}
+          />
+          <View style={styles.dropdownMenu}>
+            <TouchableOpacity
+              style={styles.dropdownItem}
+              onPress={() => {
+                handleFilterChange('RoleId', 0);
+                setShowRoleFilter(false);
+              }}>
+              <Text style={styles.dropdownItemText}>All Roles</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.dropdownItem}
+              onPress={() => {
+                handleFilterChange('RoleId', 1);
+                setShowRoleFilter(false);
+              }}>
+              <Text style={styles.dropdownItemText}>Enumerator</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.dropdownItem}
+              onPress={() => {
+                handleFilterChange('RoleId', 2);
+                setShowRoleFilter(false);
+              }}>
+              <Text style={styles.dropdownItemText}>Checker</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.dropdownItem}
+              onPress={() => {
+                handleFilterChange('RoleId', 3);
+                setShowRoleFilter(false);
+              }}>
+              <Text style={styles.dropdownItemText}>Administrator</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.dropdownItem}
+              onPress={() => {
+                handleFilterChange('RoleId', 4);
+                setShowRoleFilter(false);
+              }}>
+              <Text style={styles.dropdownItemText}>JK Admin</Text>
+            </TouchableOpacity>
+          </View>
+        </>
       )}
     </View>
   );
@@ -524,40 +531,47 @@ const UserManagementScreen: React.FC<Props> = ({ navigation }) => {
         <ChevronDown color={colors.textMuted} size={16} />
       </TouchableOpacity>
       {showStatusFilter && (
-        <View style={styles.dropdownMenu}>
+        <>
           <TouchableOpacity
-            style={styles.dropdownItem}
-            onPress={() => {
-              handleFilterChange('StatusId', 0);
-              setShowStatusFilter(false);
-            }}>
-            <Text style={styles.dropdownItemText}>All Status</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.dropdownItem}
-            onPress={() => {
-              handleFilterChange('StatusId', 1);
-              setShowStatusFilter(false);
-            }}>
-            <Text style={styles.dropdownItemText}>Active</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.dropdownItem}
-            onPress={() => {
-              handleFilterChange('StatusId', 2);
-              setShowStatusFilter(false);
-            }}>
-            <Text style={styles.dropdownItemText}>Inactive</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.dropdownItem}
-            onPress={() => {
-              handleFilterChange('StatusId', 3);
-              setShowStatusFilter(false);
-            }}>
-            <Text style={styles.dropdownItemText}>Pending</Text>
-          </TouchableOpacity>
-        </View>
+            style={styles.dropdownBackdrop}
+            onPress={() => setShowStatusFilter(false)}
+            activeOpacity={1}
+          />
+          <View style={styles.dropdownMenu}>
+            <TouchableOpacity
+              style={styles.dropdownItem}
+              onPress={() => {
+                handleFilterChange('StatusId', 0);
+                setShowStatusFilter(false);
+              }}>
+              <Text style={styles.dropdownItemText}>All Status</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.dropdownItem}
+              onPress={() => {
+                handleFilterChange('StatusId', 1);
+                setShowStatusFilter(false);
+              }}>
+              <Text style={styles.dropdownItemText}>Active</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.dropdownItem}
+              onPress={() => {
+                handleFilterChange('StatusId', 2);
+                setShowStatusFilter(false);
+              }}>
+              <Text style={styles.dropdownItemText}>Inactive</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.dropdownItem}
+              onPress={() => {
+                handleFilterChange('StatusId', 3);
+                setShowStatusFilter(false);
+              }}>
+              <Text style={styles.dropdownItemText}>Pending</Text>
+            </TouchableOpacity>
+          </View>
+        </>
       )}
     </View>
   );
@@ -1218,6 +1232,15 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 5,
+    zIndex: 1001,
+  },
+  dropdownBackdrop: {
+    position: 'absolute',
+    top: 44,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'transparent',
     zIndex: 1000,
   },
   dropdownItem: {
