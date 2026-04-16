@@ -126,11 +126,27 @@ class ApiService {
       console.log('Using mock API for login');
       return new Promise(resolve => {
         setTimeout(() => {
+          // Determine role based on email
+          const email = credentials.username.toLowerCase();
+          let userRole = 3; // Default to Admin
+          let userId = 1;
+
+          if (email.includes('maker')) {
+            userRole = 1; // Maker
+            userId = 3;
+          } else if (email.includes('checker')) {
+            userRole = 2; // Checker
+            userId = 2;
+          } else if (email.includes('admin')) {
+            userRole = 3; // Admin
+            userId = 1;
+          }
+
           const mockPayload = {
-            sub: '1',
+            sub: String(userId),
             username: credentials.username,
             email: credentials.username,
-            role: 3,
+            role: userRole,
             iat: Math.floor(Date.now() / 1000),
             exp: Math.floor(Date.now() / 1000) + 24 * 60 * 60,
           };
@@ -145,10 +161,10 @@ class ApiService {
             refresh_token: 'mock_refresh_token_' + Date.now(),
             token_type: 'bearer',
             user: {
-              id: 1,
+              id: userId,
               username: credentials.username,
               email: credentials.username,
-              role: 3,
+              role: userRole,
             },
           });
         }, 1000);

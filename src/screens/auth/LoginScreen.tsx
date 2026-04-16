@@ -31,6 +31,8 @@ const { width, height } = Dimensions.get('window');
 
 type RootStackParamList = {
   Login: undefined;
+  MakerTab: undefined;
+  CheckerTab: undefined;
   UserManagement: undefined;
   ApplicationView: { formData: any };
 };
@@ -187,10 +189,10 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
         
         const userRole = decodedToken.role;
 
-        // Only Admin (3) and Checker (2) can login
-        if (userRole !== 2 && userRole !== 3) {
+        // Only Admin (3), Checker (2), and Maker (1) can login
+        if (userRole !== 1 && userRole !== 2 && userRole !== 3) {
           throw new Error(
-            'Access denied. Only Administrators and Checkers can access this system.'
+            'Access denied. Only Makers, Checkers, and Administrators can access this system.'
           );
         }
 
@@ -205,8 +207,19 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
           await AsyncStorage.removeItem('rememberMe');
         }
 
-        console.log('Login successful! Redirecting...');
-        navigation.replace('UserManagement');
+        console.log('Login successful! Redirecting based on role:', userRole);
+        
+        // Route based on user role
+        if (userRole === 1) {
+          // Maker
+          navigation.replace('MakerTab');
+        } else if (userRole === 2) {
+          // Checker
+          navigation.replace('CheckerTab');
+        } else {
+          // Admin
+          navigation.replace('UserManagement');
+        }
       } else {
         throw new Error('Both access token and refresh token are required');
       }

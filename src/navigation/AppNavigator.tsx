@@ -7,11 +7,16 @@ import LoginScreen from '../screens/auth/LoginScreen';
 import UserManagementScreen from '../screens/applications/UserManagementScreen';
 import ApplicationViewScreen from '../screens/applications/ApplicationViewScreen';
 
+// Volunteer Navigators
+import { MakerTabNavigator, CheckerTabNavigator } from './VolunteerNavigator';
+
 // Types
 import { FormData } from '../types';
 
 export type RootStackParamList = {
   Login: undefined;
+  MakerTab: undefined;
+  CheckerTab: undefined;
   UserManagement: undefined;
   ApplicationView: { formData: FormData };
 };
@@ -28,6 +33,8 @@ const AppNavigator: React.FC = () => {
           animation: 'slide_from_right',
         }}>
         <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="MakerTab" component={MakerTabNavigator} />
+        <Stack.Screen name="CheckerTab" component={CheckerTabNavigator} />
         <Stack.Screen name="UserManagement" component={UserManagementScreen} />
         <Stack.Screen name="ApplicationView" component={ApplicationViewScreen} />
       </Stack.Navigator>

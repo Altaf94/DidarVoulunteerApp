@@ -1,4 +1,4 @@
-// Theme colors for MHIP application
+// Theme colors for MHIP / Volunteer Management application
 export const colors = {
   // Primary colors
   primary: '#306F45',
@@ -29,6 +29,8 @@ export const colors = {
   badgeYellow: { bg: '#FEF3C7', fg: '#92400E' },
   badgeRed: { bg: '#FEE2E2', fg: '#991B1B' },
   badgeBlue: { bg: '#E0F2FE', fg: '#075985' },
+  badgePurple: { bg: '#EDE9FE', fg: '#6B21A8' },
+  badgeOrange: { bg: '#FFEDD5', fg: '#9A3412' },
   
   // UI colors
   border: '#E5E7EB',
@@ -49,12 +51,37 @@ export const colors = {
     checker: { bg: '#FEF3C7', fg: '#92400E' },
     admin: { bg: '#EDE9FE', fg: '#6B21A8' },
     jkAdmin: { bg: '#FCE7F3', fg: '#BE185D' },
+    maker: { bg: '#DBEAFE', fg: '#1E40AF' },
+    viewOnly: { bg: '#F3F4F6', fg: '#374151' },
   },
   statusColors: {
     active: { bg: '#D1FAE5', fg: '#065F46' },
     inactive: { bg: '#FEE2E2', fg: '#991B1B' },
     suspended: { bg: '#FFEDD5', fg: '#9A3412' },
     pending: { bg: '#FEF3C7', fg: '#92400E' },
+    approved: { bg: '#D1FAE5', fg: '#065F46' },
+    rejected: { bg: '#FEE2E2', fg: '#991B1B' },
+    discrepant: { bg: '#FED7AA', fg: '#9A3412' },
+    submitted: { bg: '#DBEAFE', fg: '#1E40AF' },
+    printed: { bg: '#E0E7FF', fg: '#3730A3' },
+    dispatched: { bg: '#C4B5FD', fg: '#5B21B6' },
+  },
+  
+  // Access Level Band Colors (Volunteer Management)
+  accessLevelColors: {
+    stage: '#FFD700',       // Gold
+    pandal: '#4169E1',      // Royal Blue
+    holdingArea: '#32CD32', // Lime Green
+    outsideArea: '#FFA500', // Orange
+    healthArea: '#FF0000',  // Red
+  },
+  
+  // Progress colors
+  progressColors: {
+    low: '#EF4444',
+    medium: '#F97316',
+    good: '#F59E0B',
+    high: '#10B981',
   },
 };
 

@@ -12,6 +12,9 @@ export interface LoginResponse {
   message?: string;
 }
 
+// Re-export all volunteer types
+export * from './volunteer';
+
 export interface User {
   Id: string;
   Email: string;
